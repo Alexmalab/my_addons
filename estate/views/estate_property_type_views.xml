@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data >
+    <!-- treeview -->
+        <record id="estate_property_type_tree" model="ir.ui.view">
+        <field name="name">estate.property.type.tree</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree string="Types">
+                <field name="sequence" widget="handle"/>
+                <field name="name" string="Property Type Name"/>
+            </tree>
+        </field>
+        </record>
+<!--    form视图的定义-->
+        <record model="ir.ui.view" id="estate_property_type_form_view">
+            <field name="name">estate.property.type.form</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <form string ="Property Type">
+                    <h1 class="o_subtitle"><field name="name"/>
+                    <!-- 加了button -->
+                        <button name="action_open_offers_method" type="object" 
+                                string="Offers" icon="fa-dollar"/>
+                    </h1>
+                    
+                        <notebook>
+                            <page string="Propertys" >
+                            <field name="property_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="expected_price"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        </notebook>
+
+                </form>
+            </field>
+        </record>        
+
+<!--    搜索试图用于搜索过滤-->
+        <record model="ir.ui.view" id="estate_property_type_search_view">
+            <field name="name">estate.property.type.search</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <search string="Propertie_types_search">
+                    <field name="name" string = "Title"/>
+                </search>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

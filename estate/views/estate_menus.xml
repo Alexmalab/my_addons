@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<odoo>
+
+  <data>
+
+    <!-- 定义菜单 -->
+    <menuitem id="estate_menu_root" name="Real Estate"/>
+      <!-- 一级菜单 -->
+      <menuitem id="estate_advertisements_menu" parent="estate_menu_root" name="Advertisements"/>
+        <!-- 二级菜单并绑定对应的action -->
+      <menuitem id="estate_property_menu_action" parent="estate_advertisements_menu" action="estate_property_action"/>
+      
+      <!-- "Settings" 菜单 -->
+      <menuitem id="menu_estate_settings" name="Settings" parent="estate_menu_root" />
+
+      <!--  "Property Types" 菜单/动作 -->
+      <menuitem id="menu_estate_property_types" name="Property Types" parent="menu_estate_settings" 
+                action="action_estate_property_type"/>  
+
+        <!-- Property Tags菜单/action -->
+      <menuitem id="estate_property_tags_action" parent="menu_estate_settings" name="Property Tags"
+                action="action_estate_property_tag"/>
+
+
+
+  </data>
+  
+</odoo>
